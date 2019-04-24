@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/flContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvTwo"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvTwo"
+        />
+
+    <TextView
+        android:id="@+id/tvOne"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="首页"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tvTwo"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/tvTwo"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="咨询"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/tvOne"
+        app:layout_constraintRight_toLeftOf="@id/tvThree"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@android:color/white"
+        android:layout_marginStart="1dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tvThree"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="反馈"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvTwo"
+        app:layout_constraintRight_toLeftOf="@id/tvFor"
+        android:background="@android:color/white"
+        android:layout_marginStart="1dp"
+        />
+
+    <TextView
+        android:id="@+id/tvFor"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="帮助"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvThree"
+        android:background="@android:color/white"
+        android:layout_marginStart="1dp"
+        />
+
+</android.support.constraint.ConstraintLayout>
