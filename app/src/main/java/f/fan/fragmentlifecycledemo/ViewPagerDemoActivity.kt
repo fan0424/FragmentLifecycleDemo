@@ -1,5 +1,6 @@
 package f.fan.fragmentlifecycledemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -51,7 +52,19 @@ class ViewPagerDemoActivity : AppCompatActivity() {
             vpContent?.currentItem = 3
         }
 
+        btnNewPage?.setOnClickListener {
+            Log.e(ViewPagerFragment.TAG, "   ")
+            Log.e(ViewPagerFragment.TAG, "-----启动新页面-----")
+            startActivity(Intent(this@ViewPagerDemoActivity, NewPageActivity::class.java))
+        }
+
         vpContent.adapter = ViewPagerAdapter(supportFragmentManager, fragments)
     }
 
+    override fun onRestart() {
+        super.onRestart()
+
+        Log.e(ViewPagerFragment.TAG, "   ")
+        Log.e(ViewPagerFragment.TAG, "-----从新页面返回了-----")
+    }
 }

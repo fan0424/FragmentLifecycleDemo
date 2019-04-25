@@ -1,5 +1,6 @@
 package f.fan.fragmentlifecycledemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -44,6 +45,12 @@ class ShowHideDemoActivity : AppCompatActivity() {
             showFragment(fragment4)
         }
 
+        btnNewPage?.setOnClickListener {
+            Log.e(ShowHideFragment.TAG, "   ")
+            Log.e(ShowHideFragment.TAG, "-----启动新页面-----")
+            startActivity(Intent(this@ShowHideDemoActivity, NewPageActivity::class.java))
+        }
+
         supportFragmentManager.beginTransaction()
                 .add(R.id.flContent, fragment1)
                 .add(R.id.flContent, fragment2)
@@ -69,4 +76,10 @@ class ShowHideDemoActivity : AppCompatActivity() {
         showFragment = fg
     }
 
+    override fun onRestart() {
+        super.onRestart()
+
+        Log.e(ShowHideFragment.TAG, "   ")
+        Log.e(ShowHideFragment.TAG, "-----从新页面返回了-----")
+    }
 }

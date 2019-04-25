@@ -45,11 +45,17 @@ class ShowHideFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.e(TAG, "$mTag ===  onResume")
+//        Log.e(TAG, "$mTag ===  onResume")
         if(!isRuningHiddenChanged){
             isRuningHiddenChanged = true
             isUserVisible = true
             onUserVisible()
+        } else {
+
+            //如果当前页面可见的
+            if (isUserVisible) {
+                onUserVisible()
+            }
         }
     }
 
@@ -59,11 +65,11 @@ class ShowHideFragment : Fragment() {
         //如果是隐藏
         if(hidden){
             if (isUserVisible){
+                isUserVisible = false
                 onUserInvisible()
             }
         } else {
             //如果是显示
-            //并且是第一次显示
             onUserVisible()
             isUserVisible = true
         }
@@ -73,7 +79,12 @@ class ShowHideFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        Log.e(TAG, "$mTag ===  onPause")
+//        Log.e(TAG, "$mTag ===  onPause")
+
+        //如果当前页面可见的
+        if (isUserVisible) {
+            onUserInvisible()
+        }
     }
 
 

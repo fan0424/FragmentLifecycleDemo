@@ -121,7 +121,6 @@ class ViewPagerFragment : Fragment() {
 
         isFirstResume = true
         isFirstVisible = true
-
         isUserVisible = false
         isPrepared = false
     }
